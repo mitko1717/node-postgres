@@ -1,13 +1,15 @@
 const express = require("express")
+const userRouter = require('./routes/user.routes')
+const postRouter = require('./routes/post.routes')
 
 const PORT = process.env.PORT || 8080
-
-// creating server
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send("hello!!")
-})
+// to parse json string
+app.use(express.json())
 
-// make server to listen port
+// pass url by which the router will be processed
+app.use('/api', userRouter)
+app.use('/api', postRouter)
+
 app.listen(PORT, () => console.log(`server started on port ${PORT}`))
