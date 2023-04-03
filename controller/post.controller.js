@@ -10,6 +10,7 @@ class PostController {
         // }
 
         const { title, content, userId } = req.body
+            // -- in postgres UPPERCASE all KEYWORDS
             // RETURNING = after creating function will return user
             // second param (array) will match to values
         const newPost = await db.query(`INSERT INTO post (title, content, user_id) values ($1,$2, $3) RETURNING *`,

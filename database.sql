@@ -1,3 +1,4 @@
+-- in postgres UPPRCASE all KEYWORDS
 
 create TABLE person(
     id SERIAL PRIMARY KEY,

@@ -4,6 +4,7 @@ const db = require('../db')
 class UserController {
     async createUser(req, res) {
         const { name, surname } = req.body
+        // -- in postgres UPPERCASE all KEYWORDS
         // RETURNING = after creating function will return user
         // second param (array) will match to values
         const newPerson = await db.query(`INSERT INTO person (name, surname) values ($1, $2) RETURNING *`, [name, surname])
